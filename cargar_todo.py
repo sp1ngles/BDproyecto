@@ -9,6 +9,7 @@ from poblar_solicitud import generar_e_insertar_solicitudes
 from poblar_evaluacion import generar_e_insertar_evaluaciones
 from poblar_prestamo import generar_e_insertar_prestamos
 from poblar_ciclo_pagos import procesar_ciclo_pagos_y_desembolsos
+from poblar_retorno import poblar_fase_retorno
 
 
 def ejecutar_carga_masiva():
@@ -44,6 +45,8 @@ def ejecutar_carga_masiva():
 
     # 6. Transaccionalidad
     procesar_ciclo_pagos_y_desembolsos(schema=SCHEMA)
+
+    poblar_fase_retorno()
 
     print("======================================================")
     print("🚀 ¡CARGA MASIVA FINALIZADA CON ÉXITO! 🚀")
