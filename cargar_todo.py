@@ -17,7 +17,7 @@ def ejecutar_carga_masiva():
     # ========================================================
     # 1. CONFIGURA TU VOLUMEN DE DATOS AQUÍ
     # ========================================================
-    VOLUMEN_DATOS = 10000  # <--- Cambia esto a 10000
+    VOLUMEN_DATOS = 1000000
     SCHEMA = "public"
 
     print(f"--- INICIANDO CARGA MASIVA DE {VOLUMEN_DATOS} REGISTROS ---")
@@ -42,7 +42,7 @@ def ejecutar_carga_masiva():
     # Le decimos que genere solicitudes para gran parte de esos 10,000 clientes
     generar_e_insertar_solicitudes(int(VOLUMEN_DATOS * 0.8), schema=SCHEMA)  # El 80% pedirá préstamo
     generar_e_insertar_evaluaciones(schema=SCHEMA)
-    generar_e_insertar_prestamos(schema=SCHEMA)
+    generar_e_insertar_prestamos(cantidad=int(VOLUMEN_DATOS * 0.4), schema=SCHEMA)
 
     # 6. Transaccionalidad
     procesar_ciclo_pagos_y_desembolsos(schema=SCHEMA)

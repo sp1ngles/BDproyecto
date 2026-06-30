@@ -40,7 +40,7 @@ def poblar_fase_retorno(schema="public"):
         prestamos = cursor.fetchall()
 
         if not prestamos:
-            print("⚠️ No hay préstamos desembolsados para cobrar.")
+            print(" No hay préstamos desembolsados para cobrar.")
             return
 
         crono_data, cuota_data, pago_data, mora_data = [], [], [], []
@@ -117,10 +117,10 @@ def poblar_fase_retorno(schema="public"):
 
         connection.commit()
         print(
-            f"✅ ¡Fase Final Completada! Se generaron {len(crono_data)} cronogramas con {len(cuota_data)} cuotas, {len(pago_data)} pagos efectivos y {len(mora_data)} moras.")
+            f" ¡Fase Final Completada! Se generaron {len(crono_data)} cronogramas con {len(cuota_data)} cuotas, {len(pago_data)} pagos efectivos y {len(mora_data)} moras.")
 
     except psycopg2.Error as error:
-        print("\n❌ ERROR GRAVE EN POSTGRESQL ❌")
+        print("\n ERROR GRAVE EN POSTGRESQL ")
         print(error)
         if connection: connection.rollback()
     finally:
